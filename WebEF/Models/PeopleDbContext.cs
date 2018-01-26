@@ -17,8 +17,8 @@ namespace WebEF.Models
         }
         // we need thing  to till wich will senqronise with data base 
         // the data that will flow is type of class People with key DbSet one person per a row 
-        public DbSet<Person> people { get; set; }
+        public DbSet<Person> People { get; set; }
         // we go to "webconfig" in the root it is last file in project efter the line number 16 as default 
-
+        public DbSet<Car> Cars { get; set; }
     }
 }

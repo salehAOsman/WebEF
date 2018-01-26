@@ -1,0 +1,59 @@
+﻿@model WebEF.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @*this step is next step efter we add down line 49 *@
+    @*from here we will create new method as add cars to person *@
+    @*we will add action link for this method AddCarToPerson" to link *@
+    @*we need to add same input value for method it is "pId" *@
+    @Html.ActionLink("Add Car", "AddCarToPerson", new { pId = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@*we add here this part details for Cars to display details from that cars for each person that relation is one to many*@
+@*we do not need to do more as @using upp or @model because this List<Car> is property inside this model in class then just we need this part as foreachand @item. *@
+<div class="row">
+    @foreach (var item in Model.Cars)
+    {
+        <div class="row"> @item.Brand - @item.Name</div>
+    }
+</div>
+
+
+
+@*we go to controller to input id by car or id by person *@ 

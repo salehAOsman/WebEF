@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebEF.Models.Car>
+
+@{
+    ViewBag.Title = "AddCarToPerson";
+}
+
+<h2>Add Car To Person</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            <div>
+                @*i need here one button as add*@
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                @*we need just maction link and method and we need to change input to tow thing one for car one for person*@
+                @*then when we need to send tow id one for car and one for person then we have to bring id for person by NewBag.pId that come from method "AddCarToPerson" *@
+            </div> 
+            @*Car Id*@  @*Person Id*@
+        @Html.ActionLink("Add", "CarToPerson", new { cId = item.Id,pId=ViewBag.pId })
+        </td>
+    </tr>
+}
+
+</table>
